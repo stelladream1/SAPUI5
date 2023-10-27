@@ -33,6 +33,11 @@ sap.ui.define([
 			const oBinding = oList.getBinding("items");
 			console.log(oBinding);
 			oBinding.filter(aFilter);
+		},
+
+		onPress() {
+			const oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("detail");
 		}
 	});
 });
