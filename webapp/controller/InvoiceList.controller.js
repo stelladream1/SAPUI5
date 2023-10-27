@@ -34,10 +34,15 @@ sap.ui.define([
 			console.log(oBinding);
 			oBinding.filter(aFilter);
 		},
-
-		onPress() {
+		onPress(oEvent) {
+			const oItem = oEvent.getSource();
 			const oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("detail");
+			console.log(oItem);
+			console.log(oItem.getBindingContext("invoice"));
+			oRouter.navTo("detail", {
+				invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
+			});
 		}
+		
 	});
 });
